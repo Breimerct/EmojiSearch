@@ -1,0 +1,52 @@
+@import "../../style/variables.scss";
+
+.input-box {
+  position: relative;
+  width: 70%;
+  height: 50px;
+  color: white;
+
+  input {
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    background-color: $dark-color;
+    border-radius: 5px;
+    outline: none;
+    color: white;
+    font-size: 1em;
+    transition: .5s;
+
+    &:valid ~ label, &:focus ~ label {
+      color: #fafa8c;
+      transform: translateX(10px) translateY(-7px);
+      font-size: .90em;
+      padding: 0 10px;
+      background-color: $dark-color;
+      border-left: 1px solid $second-color;
+      border-right: 1px solid $second-color;
+    }
+
+    &:valid, &:focus {
+      border: 1px solid $second-color;
+    }
+  }
+
+  label {
+    position: absolute;
+    left: 0;
+    padding: 15px 10px;
+    pointer-events: none;
+    font-size: 1em;
+    color: rgba(255, 255, 255, 0.25);
+    text-transform: uppercase;
+    transition: .5s;
+  }
+}
+
+@media screen and (max-width: 740px) {
+  .input-box {
+    width: 100%;
+  }
+}

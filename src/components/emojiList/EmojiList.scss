@@ -1,0 +1,74 @@
+@import "../../style/variables.scss";
+
+.emoji-list {
+  width: 100%;
+  display: grid;
+  // grid-template-columns: auto auto auto auto;
+  // grid-template-columns: repeat(auto-fill, 20%);
+  grid-template-columns: repeat(auto-fill, minmax(20%, 350px));
+  place-content: center;
+  gap: 10px;
+  margin-top: 20px;
+
+  &-item {
+    position: relative;
+    overflow: hidden;
+    background-color: rgba(3, 0, 9, 0.93);
+    min-width: 280px;
+    height: 145px;
+    padding: 10px 10px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    cursor: pointer;
+    transition: .5s;
+
+    &:hover {
+      .info {
+        display: grid;
+        place-content: center;
+        opacity: 1;
+        transition: .4s;
+      }
+    }
+
+    img {
+      width: 50px;
+    }
+
+    p {
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-transform: capitalize;
+      text-align: center;
+      color: white;
+    }
+
+    .info {
+      opacity: 0;
+      top: 5px;
+      right: 5px;
+      width: 35px;
+      height: 35px;
+      border-radius: 100%;
+      padding: 5px;
+      position: absolute;
+      img {
+        width: 20px;
+      }
+    }
+  }
+}
+
+/*
+@media screen and (max-width: 740px) {
+  .emoji-list {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 10px;
+  }
+}
+*/
