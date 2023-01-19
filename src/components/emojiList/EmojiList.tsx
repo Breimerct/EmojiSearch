@@ -1,6 +1,5 @@
 import {EmojiInterface} from "../../interfaces/emoji.interface";
 import CopySvg from '../../assets/icons/copy.svg'
-import {useToasts} from 'react-toast-notifications';
 
 import('./EmojiList.scss')
 
@@ -10,15 +9,9 @@ interface EmojiListInterface {
 
 function EmojiList({emojis}: EmojiListInterface) {
     const codePointHex = (value: string) => (value.codePointAt(0)?.toString(16))
-    const {addToast} = useToasts();
 
     const handleOnCopy = async (emoji: string) => {
         await navigator.clipboard.writeText(emoji)
-        addToast('Copy Successfully', {
-            appearance: 'success',
-            autoDismiss: true,
-            autoDismissTimeout: 1500
-        })
     }
 
     return (
