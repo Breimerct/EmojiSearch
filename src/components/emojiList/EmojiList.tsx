@@ -1,5 +1,8 @@
 import {EmojiInterface} from "../../interfaces/emoji.interface";
 import CopySvg from '../../assets/icons/copy.svg'
+import { toast, ToastOptions } from 'react-toastify';
+
+import 'react-toastify/dist/ReactToastify.css';
 
 import('./EmojiList.scss')
 
@@ -10,8 +13,20 @@ interface EmojiListInterface {
 function EmojiList({emojis}: EmojiListInterface) {
     const codePointHex = (value: string) => (value.codePointAt(0)?.toString(16))
 
+    const toastConfig: ToastOptions = {
+        position: "top-right",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+        theme: "dark"
+    }
+
     const handleOnCopy = async (emoji: string) => {
         await navigator.clipboard.writeText(emoji)
+        toast.success('emoji copied correctly', toastConfig)
     }
 
     return (
